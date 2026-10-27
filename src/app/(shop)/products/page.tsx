@@ -1,98 +1,102 @@
 "use client";
 
+import ProductCard from "@/components/product/ProductCard";
 import { useState } from "react";
-import { useProducts } from "@/hooks";
-import { ProductCard } from "@/components/product";
-import { demoCategories } from "@/lib/demo-data";
+
+
+const products = [
+  {
+    id: "prod-001",
+    name: "Premium Cotton Oversized T-Shirt",
+    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800",
+    category: "Men's Fashion",
+    price: 850,
+    oldPrice: 1200,
+    badge: "Sale",
+  },
+  {
+    id: "prod-002",
+    name: "Classic Minimal White Sneakers",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800",
+    category: "Footwear",
+    price: 1850,
+    oldPrice: 2200,
+    badge: "Popular",
+  },
+  {
+    id: "prod-003",
+    name: "Elegant Everyday Shoulder Bag",
+    image: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800",
+    category: "Accessories",
+    price: 1450,
+    oldPrice: null,
+    badge: "New Arrival",
+  },
+  {
+    id: "prod-004",
+    name: "Premium Classic Wrist Watch",
+    image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=800",
+    category: "Watches",
+    price: 2500,
+    oldPrice: 3200,
+    badge: "Best Seller",
+  },
+  {
+    id: "prod-005",
+    name: "Modern Casual Denim Jacket",
+    image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800",
+    category: "Men's Fashion",
+    price: 1950,
+    oldPrice: 2400,
+    badge: "Sale",
+  },
+  {
+    id: "prod-006",
+    name: "Everyday Essential Backpack",
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800",
+    category: "Bags",
+    price: 1650,
+    oldPrice: null,
+    badge: "New",
+  },
+  {
+    id: "prod-007",
+    name: "Classic Black Sunglasses",
+    image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800",
+    category: "Accessories",
+    price: 650,
+    oldPrice: 900,
+    badge: "Trending",
+  },
+  {
+    id: "prod-008",
+    name: "Minimal Everyday Sneakers",
+    image: "https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?w=800",
+    category: "Footwear",
+    price: 1750,
+    oldPrice: 2100,
+    badge: "Popular",
+  },
+];
+
+
 
 export default function ProductsPage() {
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [search, setSearch] = useState<string>("");
-
-  const { data, loading, setFilters } = useProducts({
-    limit: 12,
-  });
-
-  const handleCategoryChange = (cat: string) => {
-    setSelectedCategory(cat);
-    setFilters((prev) => ({
-      ...prev,
-      category: cat || undefined,
-      page: 1,
-    }));
-  };
-
-  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    setSearch(val);
-    setFilters((prev) => ({
-      ...prev,
-      search: val || undefined,
-      page: 1,
-    }));
-  };
+  const [selectedCategory, setSelectedCategory] = useState("");
+  const [search, setSearch] = useState("");
 
   return (
-    <section className="container mx-auto px-4 py-8 max-w-6xl">
-      <div className="mb-8">
-        <h1 className="text-3xl font-extrabold tracking-tight">Our Catalog</h1>
-        <p className="mt-1 text-neutral-500">Discover everything available in our store</p>
-
-        {/* Filter Controls */}
-        <div className="mt-6 flex flex-col sm:flex-row gap-4 items-center justify-between">
-          <input
-            type="text"
-            value={search}
-            onChange={handleSearchChange}
-            placeholder="Search products by title or tag..."
-            className="w-full sm:w-80 rounded-lg border border-neutral-300 px-4 py-2 text-sm focus:border-black focus:outline-none"
+    <>
+      {" "}
+      <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-5 lg:grid-cols-4 lg:gap-x-6 lg:gap-y-10">
+        {products.map((product, index) => (
+          <ProductCard
+            key={product.id ?? product.id}
+            product={product}
+            index={index}
           />
-
-          <div className="flex flex-wrap gap-2">
-            <button
-              onClick={() => handleCategoryChange("")}
-              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${
-                !selectedCategory
-                  ? "bg-black text-white"
-                  : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
-              }`}
-            >
-              All
-            </button>
-            {demoCategories.map((c) => (
-              <button
-                key={c}
-                onClick={() => handleCategoryChange(c)}
-                className={`rounded-full px-4 py-1.5 text-xs font-semibold transition ${
-                  selectedCategory === c
-                    ? "bg-black text-white"
-                    : "bg-neutral-100 text-neutral-700 hover:bg-neutral-200"
-                }`}
-              >
-                {c}
-              </button>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
-
-      {loading ? (
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[...Array(8)].map((_, i) => (
-            <div key={i} className="h-72 rounded-xl bg-neutral-200 animate-pulse" />
-          ))}
-        </div>
-      ) : !data || data.data.length === 0 ? (
-        <div className="py-20 text-center text-neutral-500">
-          <p className="text-lg">No products found matching your search.</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-          {data.data.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
-    </section>
+    </>
   );
 }

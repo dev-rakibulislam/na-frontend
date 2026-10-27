@@ -1,4 +1,5 @@
-import { Navbar, Footer } from "@/components/layout";
+import AnnouncementBar from "@/components/layout/public/anouncment-bar";
+import Header from "@/components/layout/public/header";
 
 export default function ShopLayout({
   children,
@@ -6,10 +7,10 @@ export default function ShopLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen flex-col bg-neutral-50 text-neutral-900">
-      <Navbar />
-      <main className="flex-1">{children}</main>
-      <Footer />
-    </div>
+    <>
+      <AnnouncementBar />
+      <Header />
+      {children}
+    </>
   );
 }

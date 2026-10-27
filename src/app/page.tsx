@@ -1,12 +1,25 @@
 "use client";
-import ThemeToggle from "@/components/theme-toggle";
-import { Button } from "@/components/ui";
+import HeroSection from "@/components/home/hero-section";
+import AnnouncementBar from "@/components/layout/public/anouncment-bar";
+import Banner from "@/components/layout/public/banner";
+import Footer from "@/components/layout/public/footer";
+import Header from "@/components/layout/public/header";
+
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col ">
-      the home page
-      <Button>click me</Button>
-      <ThemeToggle />
-    </div>
+    <>
+      <AnnouncementBar />
+      <Header />
+      <HeroSection />
+      <Banner />
+      <Footer />
+    </>
   );
 }
+/***
+ * Announcement Bar →
+ *  Header →
+ *  Hero Banner →
+ *
+ * Categories → Featured Products → Best Sellers → Promotional Banner → New Arrivals → Benefits → Customer Reviews → Newsletter → Footer
+ */

@@ -9,6 +9,7 @@ export default function Providers({ children }: { children: ReactNode }) {
       attribute="class"
       defaultTheme="system"
       enableSystem
+      disableTransitionOnChange
     >
       <QueryProvider>{children}</QueryProvider>
     </ThemeProvider>
