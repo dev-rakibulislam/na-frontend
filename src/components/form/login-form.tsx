@@ -45,7 +45,7 @@ export default function LoginForm() {
         },
         onError: (err: FetchError) => {
           toast.error(
-            err.data.message || "Something went wrong. Please try again",
+            err?.data?.message || "Something went wrong. Please try again",
           );
         },
       });

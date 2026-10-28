@@ -22,7 +22,8 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "recommended": true,
+      "a11y":"info"
     },
     "domains": {
       "next": "recommended",
