@@ -124,21 +124,21 @@ export const adminRoute = [
     items: [
       { title: "Payments", url: `${prefix}/payments` },
       { title: "Refund History", url: `${prefix}/refunds` },
-      { title: "Transactions", url: `${prefix}/transactions` },
+      // { title: "Transactions", url: `${prefix}/transactions` },
     ],
   },
 
   // Promotions & Marketing
-  {
-    title: "Marketing",
-    url: "#",
-    items: [
-      { title: "Coupons & Discounts", url: `${prefix}/coupons` },
-      { title: "Banners & Sliders", url: `${prefix}/banners` },
-      { title: "Announcements", url: `${prefix}/announcements` },
-      { title: "News Letter", url: `${prefix}/news-letter` },
-    ],
-  },
+  // {
+  //   title: "Marketing",
+  //   url: "#",
+  //   items: [
+  //     { title: "Coupons & Discounts", url: `${prefix}/coupons` },
+  //     { title: "Banners & Sliders", url: `${prefix}/banners` },
+  //     { title: "Announcements", url: `${prefix}/announcements` },
+  //     { title: "News Letter", url: `${prefix}/news-letter` },
+  //   ],
+  // },
 
   // Homepage & Storefront Content
   // {
