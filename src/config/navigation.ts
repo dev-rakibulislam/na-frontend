@@ -167,10 +167,10 @@ export const adminRoute = [
     title: "Settings",
     url: "#",
     items: [
-      { title: "General Settings", url: `${prefix}/settings/general` },
+      { title: "General Settings", url: `${prefix}/general` },
       // { title: "Branding & Theme", url: `${prefix}/settings/branding` },
-      { title: "Shipping Settings", url: `${prefix}/settings/shipping` },
-      { title: "Payment Settings", url: `${prefix}/settings/payments` },
+      // { title: "Shipping Settings", url: `${prefix}/settings/shipping` },
+      // { title: "Payment Settings", url: `${prefix}/settings/payments` },
       // { title: "Tax Settings", url: `${prefix}/settings/tax` },
       // { title: "SEO Settings", url: `${prefix}/settings/seo` },
       // {
@@ -189,7 +189,7 @@ export const adminRoute = [
       // { title: "Admin Users", url: `${prefix}/admins` },
       // { title: "Roles & Permissions", url: `${prefix}/roles` },
       { title: "Customers", url: `${prefix}/customers` },
-      { title: "Activity Logs", url: `${prefix}/activity-logs` },
+      // { title: "Activity Logs", url: `${prefix}/activity-logs` },
     ],
   },
 
