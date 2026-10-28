@@ -56,7 +56,7 @@ export default function DashboardShell({
           </button> */}
 
           {/* Theme */}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
 
           {/* Profile */}
           <button
