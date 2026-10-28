@@ -1,9 +1,9 @@
 "use client";
 import HeroSection from "@/components/home/hero-section";
-import AnnouncementBar from "@/components/layout/public/anouncment-bar";
-import Banner from "@/components/layout/public/banner";
-import Footer from "@/components/layout/public/footer";
-import Header from "@/components/layout/public/header";
+import AnnouncementBar from "@/components/public/anouncment-bar";
+import Banner from "@/components/public/banner";
+import Footer from "@/components/public/footer";
+import Header from "@/components/public/header";
 
 export default function HomePage() {
   return (

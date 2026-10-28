@@ -1,5 +1,5 @@
-import AnnouncementBar from "@/components/layout/public/anouncment-bar";
-import Header from "@/components/layout/public/header";
+import AnnouncementBar from "@/components/public/anouncment-bar";
+import Header from "@/components/public/header";
 
 export default function ShopLayout({
   children,

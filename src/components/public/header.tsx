@@ -9,6 +9,7 @@ import { UserRole } from "@/types";
 
 import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
+import Logo from "../shared/logo";
 
 export default function Header() {
 
@@ -47,7 +48,7 @@ export default function Header() {
       <div className="flex justify-between items-center h-full max-w-7xl mx-auto">
         <div className="flex items-center gap-2">
           {/* <Logo /> */}
-          <span>NA </span>
+          <Logo/>
         </div>
 
         <nav className="flex gap-5">

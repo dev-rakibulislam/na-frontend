@@ -20,6 +20,7 @@ import type { SidebarItems } from "@/types/sidebar.type";
 import { cn } from "cn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Logo from "../shared/logo";
 
 const sidebarRoutes: Partial<Record<UserRole, SidebarItems>> = {
   ADMIN: adminRoute,
@@ -35,18 +36,7 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
   return (
     <Sidebar>
       <SidebarHeader className="flex h-16 flex-row items-center justify-between border-b px-4">
-        <Link href="/" className="group flex min-w-0 items-center gap-2.5">
-          {/* Replace with your actual store logo */}
-          <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#92003A] text-sm font-bold text-white shadow-sm">
-            N
-          </div>
-
-          <div className="flex min-w-0 flex-col">
-            <span className="truncate text-sm font-semibold tracking-tight">
-              {content.brand.name}
-            </span>
-          </div>
-        </Link>
+        <Logo/>
 
         {/* Mobile only */}
         <SidebarTrigger

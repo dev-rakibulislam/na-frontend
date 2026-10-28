@@ -1,6 +1,6 @@
 export const content = {
   brand: {
-    name: "NA ",
+    name: "DreamVally ",
     tagline: "Quality products, delivered to you",
   },
 
