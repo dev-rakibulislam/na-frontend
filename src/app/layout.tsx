@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
-import { siteConfig } from "@/config/site.config";
+import {  Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/providers";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
+import { content } from "@/config/content";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,10 +13,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s | ${siteConfig.name}`,
+    default: content.brand.name,
+    template: `%s | ${content.brand.name}`,
   },
-  description: siteConfig.description,
+  description: content.brand.tagline,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

@@ -11,16 +11,18 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  SidebarTrigger,
 } from "@/components/ui/sidebar";
+import { adminRoute, content, customerRoute } from "@/config";
 
 import type { UserRole } from "@/types";
-import { adminRoutes, customerRoute } from "@/routes";
 import type { SidebarItems } from "@/types/sidebar.type";
+import { cn } from "cn";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const sidebarRoutes: Partial<Record<UserRole, SidebarItems>> = {
-  ADMIN: adminRoutes,
+  ADMIN: adminRoute,
   CUSTOMER: customerRoute,
 };
 
@@ -32,14 +34,27 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
 
   return (
     <Sidebar>
-      <SidebarHeader>
-        <Link href="/">
-          <div className="flex items-center gap-2">
-            {/* <Logo /> */}
-            <span>na</span>
+      <SidebarHeader className="flex h-16 flex-row items-center justify-between border-b px-4">
+        <Link href="/" className="group flex min-w-0 items-center gap-2.5">
+          {/* Replace with your actual store logo */}
+          <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#92003A] text-sm font-bold text-white shadow-sm">
+            N
+          </div>
+
+          <div className="flex min-w-0 flex-col">
+            <span className="truncate text-sm font-semibold tracking-tight">
+              {content.brand.name}
+            </span>
           </div>
         </Link>
+
+        {/* Mobile only */}
+        <SidebarTrigger
+          className="ml-2 size-9 shrink-0 rounded-lg border border-border bg-background shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground md:hidden"
+          aria-label="Toggle sidebar"
+        />
       </SidebarHeader>
+
       <SidebarContent>
         {routes.map((item) => (
           <SidebarGroup key={item.title}>
@@ -50,13 +65,20 @@ export function DashboardSidebar({ role }: { role: UserRole }) {
               <SidebarMenu>
                 {item.items.map((subItem) => (
                   <SidebarMenuItem key={subItem.title}>
-                    <SidebarMenuButton
-                      className="text-[15px]"
+                    <Link
                       href={subItem.url}
-                      isActive={pathname === subItem.url}
+                      aria-current={
+                        pathname === subItem.url ? "page" : undefined
+                      }
+                      className={cn(
+                        "flex w-full items-center gap-2 rounded-none px-3 py-2  transition-colors",
+                        "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                        pathname === subItem.url &&
+                          "bg-sidebar-accent font-medium text-sidebar-accent-foreground",
+                      )}
                     >
                       {subItem.title}
-                    </SidebarMenuButton>
+                    </Link>
                   </SidebarMenuItem>
                 ))}
               </SidebarMenu>
