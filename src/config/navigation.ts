@@ -1,5 +1,5 @@
 const dashboardPrefix = "/dashboard";
-const prefix = "/admin";
+const prefix = `/admin-dashboard`;
 
 export const storeNavigation = [
   { title: "Home", url: "/" },
@@ -88,9 +88,9 @@ export const adminRoute = [
     url: "#",
     items: [
       { title: "Products", url: `${prefix}/products` },
-      { title: "Categories", url: `${prefix}/categories` },
-      { title: "Brands", url: `${prefix}/brands` },
-      { title: "Product Variants", url: `${prefix}/variants` },
+      // { title: "Categories", url: `${prefix}/categories` },
+      // { title: "Brands", url: `${prefix}/brands` },
+      // { title: "Product Variants", url: `${prefix}/variants` },
       { title: "Product Reviews", url: `${prefix}/reviews` },
     ],
   },
@@ -101,7 +101,7 @@ export const adminRoute = [
     url: "#",
     items: [
       { title: "Stock Management", url: `${prefix}/inventory` },
-      { title: "Stock History", url: `${prefix}/inventory/history` },
+      // { title: "Stock History", url: `${prefix}/inventory/history` },
     ],
   },
 
@@ -111,19 +111,9 @@ export const adminRoute = [
     url: "#",
     items: [
       { title: "Orders", url: `${prefix}/orders` },
-      { title: "Shipping", url: `${prefix}/shipping` },
-      { title: "Returns & Refunds", url: `${prefix}/returns` },
-      { title: "Abandoned Carts", url: `${prefix}/abandoned-carts` },
-    ],
-  },
-
-  // Customer Management
-  {
-    title: "Customers",
-    url: "#",
-    items: [
-      { title: "All Customers", url: `${prefix}/customers` },
-      { title: "Customer Groups", url: `${prefix}/customer-groups` },
+      // { title: "Shipping", url: `${prefix}/shipping` },
+      // { title: "Returns & Refunds", url: `${prefix}/returns` },
+      // { title: "Abandoned Carts", url: `${prefix}/abandoned-carts` },
     ],
   },
 
@@ -146,31 +136,31 @@ export const adminRoute = [
       { title: "Coupons & Discounts", url: `${prefix}/coupons` },
       { title: "Banners & Sliders", url: `${prefix}/banners` },
       { title: "Announcements", url: `${prefix}/announcements` },
-      { title: "Newsletter", url: `${prefix}/newsletter` },
+      { title: "News Letter", url: `${prefix}/news-letter` },
     ],
   },
 
   // Homepage & Storefront Content
-  {
-    title: "Storefront",
-    url: "#",
-    items: [
-      { title: "Homepage Builder", url: `${prefix}/homepage` },
-      { title: "Pages", url: `${prefix}/pages` },
-      { title: "Navigation Menus", url: `${prefix}/menus` },
-    ],
-  },
+  // {
+  //   title: "Storefront",
+  //   url: "#",
+  //   items: [
+  //     { title: "Homepage Builder", url: `${prefix}/homepage` },
+  //     { title: "Pages", url: `${prefix}/pages` },
+  //     { title: "Navigation Menus", url: `${prefix}/menus` },
+  //   ],
+  // },
 
   // Reports & Analytics
-  {
-    title: "Analytics",
-    url: "#",
-    items: [
-      { title: "Sales Reports", url: `${prefix}/reports/sales` },
-      { title: "Product Reports", url: `${prefix}/reports/products` },
-      { title: "Customer Reports", url: `${prefix}/reports/customers` },
-    ],
-  },
+  // {
+  //   title: "Analytics",
+  //   url: "#",
+  //   items: [
+  //     { title: "Sales Reports", url: `${prefix}/reports/sales` },
+  //     { title: "Product Reports", url: `${prefix}/reports/products` },
+  //     { title: "Customer Reports", url: `${prefix}/reports/customers` },
+  //   ],
+  // },
 
   // Store Configuration
   {
@@ -178,25 +168,27 @@ export const adminRoute = [
     url: "#",
     items: [
       { title: "General Settings", url: `${prefix}/settings/general` },
-      { title: "Branding & Theme", url: `${prefix}/settings/branding` },
+      // { title: "Branding & Theme", url: `${prefix}/settings/branding` },
       { title: "Shipping Settings", url: `${prefix}/settings/shipping` },
       { title: "Payment Settings", url: `${prefix}/settings/payments` },
-      { title: "Tax Settings", url: `${prefix}/settings/tax` },
-      { title: "SEO Settings", url: `${prefix}/settings/seo` },
-      {
-        title: "Notifications Settings",
-        url: `${prefix}/settings/notifications`,
-      },
+      // { title: "Tax Settings", url: `${prefix}/settings/tax` },
+      // { title: "SEO Settings", url: `${prefix}/settings/seo` },
+      // {
+      //   title: "Notifications Settings",
+      //   url: `${prefix}/settings/notifications`,
+      // },
     ],
   },
 
   // Admin Users & Permissions
+
   {
     title: "Administration",
     url: "#",
     items: [
-      { title: "Admin Users", url: `${prefix}/admins` },
-      { title: "Roles & Permissions", url: `${prefix}/roles` },
+      // { title: "Admin Users", url: `${prefix}/admins` },
+      // { title: "Roles & Permissions", url: `${prefix}/roles` },
+      { title: "Customers", url: `${prefix}/customers` },
       { title: "Activity Logs", url: `${prefix}/activity-logs` },
     ],
   },
@@ -207,7 +199,7 @@ export const adminRoute = [
     url: "#",
     items: [
       { title: "Audit Logs", url: `${prefix}/audit-logs` },
-      { title: "System Health", url: `${prefix}/system-health` },
+      // { title: "System Health", url: `${prefix}/system-health` },
     ],
   },
 ];
