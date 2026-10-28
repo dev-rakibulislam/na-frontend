@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -13,10 +12,10 @@ import {
   Heart,
   LockKeyhole,
   PackageCheck,
-
   Sparkles,
   Truck,
 } from "lucide-react";
+import { demoProducts } from "@/config/demo-products";
 
 const primary = "#92003A";
 
@@ -177,15 +176,14 @@ export default function Banner() {
 
   return (
     <main className="overflow-hidden bg-white text-neutral-950">
-    
-        <div className="border-t border-neutral-200/80 bg-white/80">
-          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 text-[10px] font-semibold tracking-[0.18em] text-neutral-400 sm:px-8 sm:text-xs lg:px-12">
-            <span>DISCOVER MORE</span>
-            <span className="flex items-center gap-2">
-              SCROLL TO EXPLORE <ArrowDownRight size={15} />
-            </span>
-          </div>
+      <div className="border-t border-neutral-200/80 bg-white/80">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 text-[10px] font-semibold tracking-[0.18em] text-neutral-400 sm:px-8 sm:text-xs lg:px-12">
+          <span>DISCOVER MORE</span>
+          <span className="flex items-center gap-2">
+            SCROLL TO EXPLORE <ArrowDownRight size={15} />
+          </span>
         </div>
+      </div>
 
       {/* Categories */}
       <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8 md:py-28 lg:px-12">
@@ -249,16 +247,16 @@ export default function Banner() {
           </Reveal>
 
           <div className="grid grid-cols-2 gap-x-3 gap-y-8 sm:gap-x-5 md:grid-cols-4">
-            {products.map((product, index) => (
+            {demoProducts.map((product, index) => (
               <Reveal key={product.id} delay={index * 0.07}>
                 <article className="group min-w-0">
                   <div className="relative aspect-[0.82] overflow-hidden bg-white">
                     <Link
-                      href={`/products/${product.id}`}
+                      href={`/products/${product.slug}`}
                       aria-label={`View ${product.name}`}
                     >
                       <Image
-                        src={product.image}
+                        src={product.images[0]}
                         alt={product.name}
                         fill
                         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 280px"
@@ -267,7 +265,7 @@ export default function Banner() {
                     </Link>
 
                     <span className="absolute left-2 top-2 bg-white px-2 py-1 text-[9px] font-bold tracking-wider text-neutral-700 sm:left-3 sm:top-3 sm:text-[10px]">
-                      {product.badge}
+                      {product.sizes}
                     </span>
 
                     <button
@@ -299,9 +297,9 @@ export default function Banner() {
                       <span className="text-sm font-bold text-neutral-950">
                         ৳{product.price.toLocaleString("en-BD")}
                       </span>
-                      {product.oldPrice && (
+                      {product.originalPrice && (
                         <span className="text-xs text-neutral-400 line-through">
-                          ৳{product.oldPrice.toLocaleString("en-BD")}
+                          ৳{product.price.toLocaleString("en-BD")}
                         </span>
                       )}
                     </div>
@@ -357,59 +355,6 @@ export default function Banner() {
         </Reveal>
       </section>
 
-      {/* New arrivals */}
-      <section className="border-y border-neutral-100">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-8 md:grid-cols-[0.8fr_1.2fr] md:items-center md:py-20 lg:px-12">
-          <Reveal>
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#92003A]">
-              Just landed
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
-              Fresh finds.
-              <br />
-              First dibs.
-            </h2>
-            <p className="mt-4 max-w-md text-sm leading-7 text-neutral-500">
-              Meet the latest additions to our collection. Discover something
-              new and make it your own.
-            </p>
-            <Link
-              href="/products?sort=newest"
-              className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#92003A]"
-            >
-              Shop new arrivals <ArrowRight size={17} />
-            </Link>
-          </Reveal>
-
-          <Reveal delay={0.15}>
-            <Link href="/products?sort=newest" className="group block">
-              <div className="relative aspect-[1.6] overflow-hidden bg-neutral-100 sm:aspect-[1.9]">
-                <Image
-                  src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?auto=format&fit=crop&w=1100&q=85"
-                  alt="New season footwear"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 60vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/45 to-transparent" />
-                <div className="absolute bottom-5 left-5 flex items-end justify-between gap-4 text-white sm:bottom-7 sm:left-7">
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-[0.2em]">
-                      NEW SEASON
-                    </span>
-                    <h3 className="mt-2 text-xl font-semibold sm:text-2xl">
-                      The latest edit
-                    </h3>
-                  </div>
-                  <span className="flex size-10 shrink-0 items-center justify-center rounded-full bg-white text-[#92003A]">
-                    <ArrowUpRight size={20} />
-                  </span>
-                </div>
-              </div>
-            </Link>
-          </Reveal>
-        </div>
-      </section>
 
       {/* Benefits */}
       <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 md:py-20 lg:px-12">

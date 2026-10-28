@@ -2,6 +2,7 @@
 
 import ThemeToggle from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { storeNavigation } from "@/config";
 // import { toast } from "@/components/ui/toast";
 import { useGetMe, useLogout } from "@/hooks";
 import { UserRole } from "@/types";
@@ -10,10 +11,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import Link from "next/link";
 
 export default function Header() {
-  const routes = [
-    { name: "Home", url: "/" },
-    { name: "About us", url: "/about-us" },
-  ];
 
   const { data, isLoading } = useGetMe();
   const { mutate: logout } = useLogout();
@@ -54,9 +51,9 @@ export default function Header() {
         </div>
 
         <nav className="flex gap-5">
-          {routes.map((route) => (
+          {storeNavigation.map((route) => (
             <Link key={route.url} href={route.url}>
-              {route.name}
+              {route.title}
             </Link>
           ))}
           {role && (
@@ -64,7 +61,7 @@ export default function Header() {
               {role === "ADMIN" ? "Dashboard" : "My profile"}
             </Link>
           )}
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           {/* {role && <Link href={dashboardRoute[role]}>Dashboard</Link>} */}
         </nav>
         <div>

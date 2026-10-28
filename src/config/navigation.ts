@@ -4,8 +4,6 @@ const prefix = "/admin";
 export const storeNavigation = [
   { title: "Home", url: "/" },
   { title: "Products", url: "/products" },
-  { title: "Categories", url: "/categories" },
-  { title: "My Wishlist", url: `${dashboardPrefix}/wishlist` },
 ];
 
 export const customerRoute = [
@@ -23,10 +21,10 @@ export const customerRoute = [
     items: [
       { title: "My Orders", url: `${dashboardPrefix}/orders` },
       { title: "My Wishlist", url: `${dashboardPrefix}/wishlist` },
-      { title: "Returns & Refunds", url: `${dashboardPrefix}/returns` },
-      { title: "Reviews & Ratings", url: `${dashboardPrefix}/reviews` },
-      { title: "Coupons", url: `${dashboardPrefix}/coupons` },
-      { title: "Loyalty Points", url: `${dashboardPrefix}/loyalty` },
+      // { title: "Returns & Refunds", url: `${dashboardPrefix}/returns` },
+      // { title: "Reviews & Ratings", url: `${dashboardPrefix}/reviews` },
+      // { title: "Coupons", url: `${dashboardPrefix}/coupons` },
+      // { title: "Loyalty Points", url: `${dashboardPrefix}/loyalty` },
     ],
   },
 
@@ -36,40 +34,40 @@ export const customerRoute = [
     url: "#",
     items: [
       { title: "My Profile", url: `${dashboardPrefix}/profile` },
-      { title: "Address Book", url: `${dashboardPrefix}/addresses` },
-      { title: "Payments", url: `${dashboardPrefix}/payments` },
-      { title: "Security", url: `${dashboardPrefix}/security` },
+      // { title: "Address Book", url: `${dashboardPrefix}/addresses` },
+      // { title: "Payments", url: `${dashboardPrefix}/payments` },
+      // { title: "Security", url: `${dashboardPrefix}/security` },
     ],
   },
 
   // Notifications
-  {
-    title: "Notifications",
-    url: "#",
-    items: [{ title: "My Notifications", url: `${dashboardPrefix}/notifications` }],
-  },
+  // {
+  //   title: "Notifications",
+  //   url: "#",
+  //   items: [{ title: "My Notifications", url: `${dashboardPrefix}/notifications` }],
+  // },
 
   // Customer Support
-  {
-    title: "Support",
-    url: "#",
-    items: [{ title: "Help & Support", url: `${dashboardPrefix}/support` }],
-  },
+  // {
+  //   title: "Support",
+  //   url: "#",
+  //   items: [{ title: "Help & Support", url: `${dashboardPrefix}/support` }],
+  // },
 
   // Account Actions
-  {
-    title: "Account Actions",
-    url: "#",
-    items: [
-      {
-        title: "Logout",
-        url: "#",
-        // IMPORTANT: Handle logout separately in the sidebar component.
-        // Clear authentication state and redirect to login.
-      },
-    ],
-  },
-] ;
+  // {
+  //   title: "Account Actions",
+  //   url: "#",
+  //   items: [
+  //     {
+  //       title: "Logout",
+  //       url: "#",
+  //       // IMPORTANT: Handle logout separately in the sidebar component.
+  //       // Clear authentication state and redirect to login.
+  //     },
+  //   ],
+  // },
+];
 
 export const adminRoute = [
   // Dashboard Overview
