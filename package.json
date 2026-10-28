@@ -1,6 +1,6 @@
 {
   "name": "7.1-na",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
